@@ -54,7 +54,7 @@ This script opens the Zone Drawer, starts the Backend, starts the Frontend, and 
 
 ---
 
-## ⚙️ Manual Setup
+##  Manual Setup
 If the scripts don't work for you, here is how to run it manually:
 
 **1. Backend (Terminal 1)**
@@ -78,7 +78,7 @@ To redraw the tracking zones:
 python setup_zone.py
 ```
 
-## 📡 API Endpoints
+##  API Endpoints
 The backend runs on `http://localhost:8000`.
 
 * **`GET /video_feed`**: MJPEG stream of the processed video with bounding boxes.
