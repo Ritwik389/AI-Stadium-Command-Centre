@@ -90,7 +90,7 @@ export function StadiumHeatmap() {
       const imageW = img.width * scale;
       const imageH = img.height * scale;
 
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.6;
       ctx.drawImage(img, imageX, imageY, imageW, imageH);
       ctx.globalAlpha = 1;
 
@@ -156,8 +156,8 @@ export function StadiumHeatmap() {
   }, [layout, maxCount, zones]);
 
   return (
-    <div className="relative w-full h-full bg-slate-100 rounded-xl overflow-hidden border border-border shadow-inner group">
-      <div className="absolute top-4 left-4 z-10 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-white/20">
+    <div className="relative w-full h-full bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
+      <div className="absolute top-4 left-4 z-10 bg-white/85 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-white/20">
         <h3 className="text-xs font-semibold text-slate-600 flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
           CROWD DENSITY HEATMAP

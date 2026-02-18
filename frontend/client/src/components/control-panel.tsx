@@ -50,7 +50,7 @@ export function ControlPanel() {
 
   return (
     <div className="flex flex-col gap-6 h-full">
-      <div className="p-4 bg-slate-900 rounded-2xl text-white shadow-lg overflow-hidden relative">
+      <div className="p-4 bg-white rounded-2xl text-slate-900 shadow-sm overflow-hidden relative border border-slate-200">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <ShieldAlert className="w-4 h-4 text-emerald-400" />
@@ -58,7 +58,7 @@ export function ControlPanel() {
           </div>
           <Badge className="bg-emerald-500 hover:bg-emerald-600 border-none text-[9px]">Backend</Badge>
         </div>
-        <p className="text-[11px] text-slate-300 leading-relaxed">
+        <p className="text-[11px] text-slate-500 leading-relaxed">
           Gate count is dynamic from backend zones. Manual pricing updates call `/set_price` and `/set_auto`.
         </p>
       </div>

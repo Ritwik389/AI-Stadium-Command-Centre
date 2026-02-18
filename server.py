@@ -3,30 +3,21 @@ from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from main import stadium_ai 
-
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 class PriceUpdate(BaseModel):
     zone_name: str
     price: float
-
 class ZoneReset(BaseModel):
     zone_name: str
-
-
-
 @app.get("/")
 def home():
     return {"status": "Online", "endpoints": ["/video_feed", "/data"]}
-
 @app.get("/video_feed")
 def video_feed():
     def generate():
@@ -35,17 +26,13 @@ def video_feed():
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
     return StreamingResponse(generate(), media_type='multipart/x-mixed-replace; boundary=frame')
-
 @app.get("/data")
 def get_data():
     return stadium_ai.get_latest_data()
-
 @app.post("/set_price")
 def set_price(update: PriceUpdate):
-    """User manually changes price -> Stops AI pricing for that zone."""
     stadium_ai.set_manual_price(update.zone_name, update.price)
     return {"status": "Manual Mode Activated", "new_price": update.price}
-
 @app.post("/set_auto")
 def set_auto(reset: ZoneReset):
     """User clicks 'Resume Auto' -> AI takes over pricing again."""

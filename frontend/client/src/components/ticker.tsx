@@ -5,7 +5,7 @@ export function Ticker() {
   const { zones } = useStadiumStore();
 
   return (
-    <div className="w-full flex flex-col gap-4 mb-8">
+    <div className="w-full flex flex-col gap-4">
       <div className="flex items-center justify-between px-1">
         <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2">
           <Tag className="w-3 h-3" /> Live Zone Pricing
@@ -22,7 +22,7 @@ export function Ticker() {
         {zones.map((zone) => (
           <div
             key={zone.id}
-            className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
+            className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
           >
             {zone.status !== 'SAFE' ? (
               <div
@@ -70,7 +70,7 @@ export function Ticker() {
         ))}
       </div>
       {zones.length === 0 ? (
-        <div className="text-xs text-slate-500 bg-white border border-slate-200 rounded-xl px-4 py-3">
+        <div className="text-xs text-slate-500 bg-white border border-slate-200 rounded-2xl px-4 py-3">
           Waiting for zones from backend `/data`...
         </div>
       ) : null}

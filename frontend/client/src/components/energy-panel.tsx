@@ -29,7 +29,7 @@ export function EnergyPanel() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {zones.map((zone) => (
-          <div key={zone.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4 hover:shadow-md transition-all">
+          <div key={zone.id} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4 transition-all">
             <div className="relative w-16 h-16 flex items-center justify-center">
               <div
                 className={`w-14 h-14 rounded-full border-4 flex items-center justify-center text-[10px] font-black ${

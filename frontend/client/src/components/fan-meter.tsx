@@ -9,7 +9,7 @@ export function FanMeter() {
   const healthPercent = Math.max(0, 100 - criticalZones * 35 - warningZones * 15);
 
   return (
-    <div className="mt-8 bg-white rounded-3xl p-6 border border-slate-200 shadow-xl relative overflow-hidden group">
+    <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xl relative overflow-hidden group">
       <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
         <Heart className="w-24 h-24 text-pink-500 fill-pink-500" />
       </div>
