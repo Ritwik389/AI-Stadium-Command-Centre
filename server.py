@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from main import stadium_ai # Import the system
+from main import stadium_ai 
 
 app = FastAPI()
 
@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- MODELS ---
+
 class PriceUpdate(BaseModel):
     zone_name: str
     price: float
@@ -21,7 +21,7 @@ class PriceUpdate(BaseModel):
 class ZoneReset(BaseModel):
     zone_name: str
 
-# --- ENDPOINTS ---
+
 
 @app.get("/")
 def home():
