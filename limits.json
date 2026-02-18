@@ -1,0 +1,18 @@
+{
+  "warning_threshold": 5,
+  "critical_threshold": 7,
+  "eco_low_max_count": 3,
+  "eco_medium_max_count": 6,
+  "lighting": {
+    "off_percent": 20,
+    "low_percent": 60,
+    "medium_percent": 80,
+    "high_percent": 100
+  },
+  "pricing": {
+    "base_price": 100,
+    "capacity": 50,
+    "min_factor": 0.8,
+    "max_factor": 1.5
+  }
+}
