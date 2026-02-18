@@ -17,12 +17,12 @@ interface ZoneLayoutResponse {
 
 function getZoneColor(status: string): string {
   if (status === 'CRITICAL') {
-    return '#dc2626';
+    return '#ef4444';
   }
   if (status === 'WARNING') {
-    return '#ea580c';
+    return '#facc15';
   }
-  return '#16a34a';
+  return '#22c55e';
 }
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
@@ -107,34 +107,46 @@ export function StadiumHeatmap() {
           y: imageY + p.y * imageH,
         }));
 
-        if (scaledPoints.length < 3) {
+        if (scaledPoints.length < 2) {
           return;
         }
 
-        ctx.beginPath();
-        ctx.moveTo(scaledPoints[0].x, scaledPoints[0].y);
-        scaledPoints.slice(1).forEach((p) => ctx.lineTo(p.x, p.y));
-        ctx.closePath();
-        ctx.save();
-        ctx.clip();
-
         const centerX = scaledPoints.reduce((sum, p) => sum + p.x, 0) / scaledPoints.length;
         const centerY = scaledPoints.reduce((sum, p) => sum + p.y, 0) / scaledPoints.length;
-        const spread = 40 + intensity * 120;
+        const spread = 32 + intensity * 110;
         const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, spread);
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${0.55 + intensity * 0.35})`);
-        gradient.addColorStop(0.45, `rgba(${r}, ${g}, ${b}, ${0.25 + intensity * 0.25})`);
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${0.6 + intensity * 0.32})`);
+        gradient.addColorStop(0.4, `rgba(${r}, ${g}, ${b}, ${0.28 + intensity * 0.2})`);
         gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, spread, 0, Math.PI * 2);
+        ctx.fill();
         ctx.restore();
 
+        const labelBgWidth = 86;
+        const labelBgHeight = 28;
+        ctx.fillStyle = 'rgba(255,255,255,0.78)';
+        ctx.fillRect(centerX - labelBgWidth / 2, centerY - labelBgHeight / 2, labelBgWidth, labelBgHeight);
+
+        ctx.strokeStyle = 'rgba(15, 23, 42, 0.08)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(centerX - labelBgWidth / 2, centerY - labelBgHeight / 2, labelBgWidth, labelBgHeight);
+
         ctx.fillStyle = '#0f172a';
-        ctx.font = 'bold 11px JetBrains Mono, monospace';
+        ctx.font = 'bold 10px JetBrains Mono, monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(zoneData?.name ?? `Zone ${index + 1}`, centerX, centerY - 4);
+        ctx.fillText(zoneData?.name ?? `Zone ${index + 1}`, centerX, centerY - 2);
         ctx.fillText(`Count: ${count}`, centerX, centerY + 10);
+
+        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.45)`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, Math.max(14, spread * 0.22), 0, Math.PI * 2);
+        ctx.stroke();
       });
 
       ctx.strokeStyle = 'rgba(56, 189, 248, 0.1)';
