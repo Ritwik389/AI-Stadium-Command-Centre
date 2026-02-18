@@ -20,7 +20,7 @@ Instead of just recording video, our system **understands** it. It tracks crowd 
 * **Custom Zone Layout:** Draw your own tracking zones on any camera feed with a simple GUI.
 * **Enterprise Dashboard:** A clean, React-based control room with live video, data logs, and manual overrides.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 * **AI/Backend:** Python 3.10, Ultralytics YOLOv8, OpenCV, FastAPI, Supervision.
 * **Frontend:** React (Vite), Tailwind CSS, Lucide Icons, Axios.
 * **DevOps:** Shell scripting for one-click setup.
