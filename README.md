@@ -1,4 +1,4 @@
-# 🏟️ AI Stadium Command Center
+#  AI Stadium Command Center
 
 > **Next-Gen Stadium Operations: Smart Crowds, Dynamic Pricing, and Automated Safety.**
 
