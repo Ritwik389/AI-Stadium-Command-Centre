@@ -13,12 +13,12 @@ Instead of just recording video, our system **understands** it. It tracks crowd 
 3.  **Optimize Energy:** Smartly control lighting/HVAC in empty zones to cut costs.
 
 ##  Key Features
-* ** Live Crowd Analytics:** Real-time people counting using YOLOv8 object detection.
-* ** Dynamic Pricing Engine:** Zone-specific pricing updates automatically based on crowd density.
-* ** Automated Safety Alerts:** "Green/Yellow/Red" status indicators for immediate risk assessment.
-* ** Energy Efficiency Mode:** Detects empty areas to suggest "Eco Mode" (dimming lights/AC).
-* ** Custom Zone Layout:** Draw your own tracking zones on any camera feed with a simple GUI.
-* ** Enterprise Dashboard:** A clean, React-based control room with live video, data logs, and manual overrides.
+* **Live Crowd Analytics:** Real-time people counting using YOLOv8 object detection.
+* **Dynamic Pricing Engine:** Zone-specific pricing updates automatically based on crowd density.
+* **Automated Safety Alerts:** "Green/Yellow/Red" status indicators for immediate risk assessment.
+* **Energy Efficiency Mode:** Detects empty areas to suggest "Eco Mode" (dimming lights/AC).
+* **Custom Zone Layout:** Draw your own tracking zones on any camera feed with a simple GUI.
+* **Enterprise Dashboard:** A clean, React-based control room with live video, data logs, and manual overrides.
 
 ## 🛠️ Tech Stack
 * **AI/Backend:** Python 3.10, Ultralytics YOLOv8, OpenCV, FastAPI, Supervision.
